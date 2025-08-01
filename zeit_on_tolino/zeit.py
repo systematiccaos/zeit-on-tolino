@@ -51,7 +51,7 @@ def _login(webdriver: WebDriver) -> None:
     if "anmelden" in webdriver.current_url:
         raise RuntimeError("Failed to login, check your login credentials.")
 
-    WebDriverWait(webdriver, Delay.medium).until(EC.presence_of_element_located((By.CLASS_NAME, "page-section-header")))
+    WebDriverWait(webdriver, Delay.medium).until(EC.presence_of_element_located((By.CLASS_NAME, "page-section-main")))
 
 
 def _get_latest_downloaded_file_path(download_dir: str) -> Path:
