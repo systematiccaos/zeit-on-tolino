@@ -39,12 +39,12 @@ def _login(webdriver: WebDriver) -> None:
     username, password = _get_credentials()
     webdriver.get(ZEIT_LOGIN_URL)
 
-    username_field = webdriver.find_element(By.ID, "login_email")
+    username_field = webdriver.find_element(By.ID, "username")
     username_field.send_keys(username)
-    password_field = webdriver.find_element(By.ID, "login_pass")
+    password_field = webdriver.find_element(By.ID, "password")
     password_field.send_keys(password)
 
-    btn = webdriver.find_element(By.CLASS_NAME, "submit-button.log")
+    btn = webdriver.find_element(By.ID, "kc-login")
     btn.click()
     time.sleep(Delay.small)
 
