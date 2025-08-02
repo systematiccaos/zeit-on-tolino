@@ -285,6 +285,7 @@ def wait_for_downloads(path):
 def download_e_paper(webdriver: WebDriver) -> str:
     # _login(webdriver)
     webdriver.get(ZEIT_LOGIN_URL)
+    time.sleep(Delay.small)
     _set_token_cookie(webdriver=webdriver)
     webdriver.get(ZEIT_LOGIN_URL)
 
