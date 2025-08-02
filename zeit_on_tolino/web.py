@@ -25,6 +25,8 @@ def get_webdriver(download_path: Union[Path, str] = DOWNLOAD_PATH) -> WebDriver:
     options = FirefoxOptions()
     prefs = {"download.default_directory" : f"{download_path}/"}
     # options.add_experimental_option("prefs",prefs)
+    options.set_preference("browser.download.folderList", 2)
+    options.set_preference("browser.download.manager.showWhenStarting", False)
     options.set_preference("browser.download.dir", f"{download_path}/")
     # options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36")
     # options.add_argument("--headless")
