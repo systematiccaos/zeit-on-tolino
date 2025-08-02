@@ -176,7 +176,7 @@ def _set_token_cookie(webdriver: WebDriver):
     token = os.environ[EnvVars.ZEIT_SSO_TOKEN]
     cookie_name = ZEIT_SSO_TOKEN_NAME
     domain = ".zeit.de"
-    webdriver.add_cookie({"name": cookie_name, "value": token})
+    webdriver.add_cookie({"name": cookie_name, "value": token, "domain": domain})
 
 def _get_credentials() -> Tuple[str, str]:
     try:
