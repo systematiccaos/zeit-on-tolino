@@ -11,7 +11,7 @@ if __name__ == "__main__":
     env_vars.verify_configured_partner_shop_is_supported()
 
     log.info("logging into ZEIT premium...")
-    download_dir = os.path.join(os.getenv('HOME'), 'Downloads')
+    download_dir = os.path.join('/tmp/', 'Downloads')
     webdriver = web.get_webdriver(download_dir)
 
     # download ZEIT
