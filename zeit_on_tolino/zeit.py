@@ -271,7 +271,7 @@ def _get_latest_downloaded_file_path(download_dir: str) -> Path:
 
 
 def wait_for_downloads(path):
-    time.sleep(Delay.large)
+    time.sleep(Delay.small)
     start = time.time()
     while any([filename.endswith(".crdownload") for filename in os.listdir(path)]):
         now = time.time()

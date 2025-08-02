@@ -51,10 +51,10 @@ def _login(webdriver: WebDriver) -> None:
         EC.presence_of_element_located((By.CSS_SELECTOR, 'div[data-test-id="ftu-countrySelection-countryList"]'))
     )
     WebDriverWait(webdriver, Delay.medium).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, 'div[data-test-id="ftu-country-de-DE"]'))
+        EC.presence_of_element_located((By.CSS_SELECTOR, 'button[data-test-id="ftu-country-de-DE"]'))
     )
     time.sleep(Delay.small)
-    for div in webdriver.find_elements(By.TAG_NAME, "div"):
+    for div in webdriver.find_elements(By.TAG_NAME, "button"):
         if div.text == TOLINO_COUNTRY_TO_SELECT:
             div.click()
             break
@@ -66,8 +66,8 @@ def _login(webdriver: WebDriver) -> None:
     WebDriverWait(webdriver, Delay.large).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'div[data-test-id="ftu-resellerSelection-resellerList"]'))
     )
-    for div in webdriver.find_elements(By.TAG_NAME, "div"):
-        if shop.shop_image_keyword in div.get_attribute("style"):
+    for div in webdriver.find_elements(By.TAG_NAME, "img"):
+        if shop.shop_image_keyword in div.get_attribute("alt"):
             div.click()
             break
     else:
@@ -127,7 +127,7 @@ def _upload(webdriver: WebDriver, file_path: Path, e_paper_title: str) -> None:
     time.sleep(Delay.small)
     my_books_button.click()
 
-    menu_css = 'div[data-test-id="library-headerBar-overflowMenu-button"]'
+    menu_css = 'button[data-test-id="library-headerBar-overflowMenu-button"]'
     WebDriverWait(webdriver, Delay.medium).until(EC.presence_of_element_located((By.CSS_SELECTOR, menu_css)))
     if e_paper_title in webdriver.page_source:
         log.info(f"The title '{e_paper_title}' is already present in tolino cloud. Skipping upload.")
@@ -139,7 +139,7 @@ def _upload(webdriver: WebDriver, file_path: Path, e_paper_title: str) -> None:
 
     # upload file
     WebDriverWait(webdriver, Delay.small).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, 'div[data-test-id="library-headerBar-menu-item-upload"]'))
+        EC.presence_of_element_located((By.CSS_SELECTOR, 'button[data-test-id="library-headerBar-menu-item-upload"]'))
     )
     upload = webdriver.find_element(By.XPATH, "//input[@type='file']")
     upload.send_keys(str(file_path))

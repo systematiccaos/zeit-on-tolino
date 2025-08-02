@@ -27,7 +27,7 @@ hugendubel = ShopDetails(
     user=SeleniumItem(by=By.NAME, value="email"),
     password=SeleniumItem(by=By.NAME, value="password"),
     login_button=SeleniumItem(by=By.CLASS_NAME, value="btn-primary.btn-lg"),
-    shop_image_keyword="hugendubel",
+    shop_image_keyword="Hugendubel",
 )
 
 buecher_de = ShopDetails(
