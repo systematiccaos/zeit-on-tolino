@@ -11,7 +11,7 @@ if __name__ == "__main__":
     env_vars.verify_configured_partner_shop_is_supported()
 
     log.info("logging into ZEIT premium...")
-    webdriver = web.get_webdriver()
+    webdriver = web.get_webdriver("./download")
 
     # download ZEIT
     log.info("downloading most recent ZEIT e-paper...")

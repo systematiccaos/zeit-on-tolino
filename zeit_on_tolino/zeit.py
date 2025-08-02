@@ -1,7 +1,6 @@
 import logging
 import glob
 import os
-import tempfile
 import time
 import random
 from pathlib import Path
@@ -272,7 +271,7 @@ def _get_latest_downloaded_file_path(download_dir: str) -> Path:
 
 
 def wait_for_downloads(path):
-    time.sleep(Delay.small)
+    time.sleep(Delay.large)
     start = time.time()
     while any([filename.endswith(".crdownload") for filename in os.listdir(path)]):
         now = time.time()
@@ -307,8 +306,8 @@ def download_e_paper(webdriver: WebDriver) -> str:
             link.click()
             break
 
-    wait_for_downloads(tempfile.TemporaryDirectory().name)
-    e_paper_path = _get_latest_downloaded_file_path(tempfile.TemporaryDirectory().name)
+    wait_for_downloads(webdriver.download_dir_path)
+    e_paper_path = _get_latest_downloaded_file_path(webdriver.download_dir_path)
 
     if not e_paper_path.is_file():
         raise RuntimeError("Could not download e paper, check your login credentials.")

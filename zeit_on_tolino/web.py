@@ -2,6 +2,7 @@ import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Union
+import os
 
 from selenium.webdriver import Chrome, ChromeOptions, Firefox, FirefoxOptions
 from selenium.webdriver.firefox.webdriver import WebDriver
@@ -19,6 +20,8 @@ class Delay:
 
 def get_webdriver(download_path: Union[Path, str] = DOWNLOAD_PATH) -> WebDriver:
     # options = ChromeOptions()
+    if os.path.exists(download_path):
+        os.mkdir(download_path)
     options = FirefoxOptions()
     prefs = {"download.default_directory" : f"{download_path}/"}
     # options.add_experimental_option("prefs",prefs)
