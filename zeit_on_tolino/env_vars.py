@@ -12,6 +12,7 @@ class EnvVars:
     # zeit env vars
     ZEIT_PREMIUM_USER: str = "ZEIT_PREMIUM_USER"
     ZEIT_PREMIUM_PASSWORD: str = "ZEIT_PREMIUM_PASSWORD"
+    ZEIT_SSO_TOKEN: str = "ZEIT_SSO_TOKEN"
 
 
 class MissingEnvironmentVariable(Exception):
