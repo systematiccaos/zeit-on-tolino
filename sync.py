@@ -1,5 +1,5 @@
 import logging
-
+import os
 from zeit_on_tolino import env_vars, epub, tolino, web, zeit
 
 logging.basicConfig(level=logging.INFO)
@@ -11,7 +11,8 @@ if __name__ == "__main__":
     env_vars.verify_configured_partner_shop_is_supported()
 
     log.info("logging into ZEIT premium...")
-    webdriver = web.get_webdriver("./download")
+    download_dir = os.path.join(os.getenv('HOME'), 'Downloads')
+    webdriver = web.get_webdriver(download_dir)
 
     # download ZEIT
     log.info("downloading most recent ZEIT e-paper...")
