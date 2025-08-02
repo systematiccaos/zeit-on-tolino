@@ -20,7 +20,7 @@ class Delay:
 
 def get_webdriver(download_path: Union[Path, str] = DOWNLOAD_PATH) -> WebDriver:
     # options = ChromeOptions()
-    if os.path.exists(download_path):
+    if not os.path.exists(download_path):
         os.mkdir(download_path)
     options = FirefoxOptions()
     prefs = {"download.default_directory" : f"{download_path}/"}
