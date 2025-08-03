@@ -301,6 +301,7 @@ def download_e_paper(webdriver: WebDriver) -> str:
     log.info('looking for download button')
     time.sleep(30)
     for link in webdriver.find_elements(By.TAG_NAME, "a"):
+        log.info(f"found button: {link.text}")
         if link.text == BUTTON_TEXT_DOWNLOAD_EPUB:
             log.info("clicking download button now...")
             link.click()
