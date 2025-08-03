@@ -299,7 +299,7 @@ def download_e_paper(webdriver: WebDriver) -> str:
     if BUTTON_TEXT_EPUB_DOWNLOAD_IS_PENDING in webdriver.page_source:
         raise RuntimeError("New ZEIT release is available, however, EPUB version is not. Retry again later.")
     log.info('looking for download button')
-    time.sleep(30)
+    time.sleep(Delay.small)
     for link in webdriver.find_elements(By.TAG_NAME, "a"):
         log.info(f"found button: {link.text}")
         if link.text == BUTTON_TEXT_DOWNLOAD_EPUB:
