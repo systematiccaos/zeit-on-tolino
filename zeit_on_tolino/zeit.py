@@ -273,7 +273,7 @@ def _get_latest_downloaded_file_path(download_dir: str) -> Path:
 def wait_for_downloads(path):
     time.sleep(Delay.small)
     start = time.time()
-    while any([filename.endswith(".crdownload") for filename in os.listdir(path)]):
+    while any([filename.endswith(".part") for filename in os.listdir(path)]):
         now = time.time()
         if now > start + Delay.large:
             raise TimeoutError(f"Did not manage to download file within {Delay.large} seconds.")
