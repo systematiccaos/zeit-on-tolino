@@ -1,6 +1,6 @@
 import logging
 import os
-from zeit_on_tolino import env_vars, epub, tolino, web, zeit
+from zeit_on_tolino import env_vars, epub, tolino, web, zeit, custom_reveiver
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
@@ -24,6 +24,9 @@ if __name__ == "__main__":
     # upload to tolino cloud
     log.info("upload ZEIT e-paper to tolino cloud...")
     tolino.login_and_upload(webdriver, e_paper_path, e_paper_title)
+
+    log.info("upload ZEIT e-paper to custom receiver")
+    custom_receiver.upload(e_paper_path)
 
     webdriver.quit()
     log.info("done.")

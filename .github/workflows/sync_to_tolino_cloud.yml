@@ -45,4 +45,5 @@ jobs:
         TOLINO_PASSWORD: ${{ secrets.TOLINO_PASSWORD }}
         TOLINO_PARTNER_SHOP: ${{ secrets.TOLINO_PARTNER_SHOP }}
         ZEIT_SSO_TOKEN: ${{ secrets.ZEIT_SSO_TOKEN }}
+        CUSTOM_URL: ${{ secrets.CUSTOM_URL }}
       run: poetry run python sync.py
