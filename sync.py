@@ -1,6 +1,6 @@
 import logging
 import os
-from zeit_on_tolino import env_vars, epub, tolino, web, zeit, custom_reveiver
+from zeit_on_tolino import env_vars, epub, tolino, web, zeit, custom_receiver
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
