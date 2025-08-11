@@ -26,7 +26,7 @@ if __name__ == "__main__":
     tolino.login_and_upload(webdriver, e_paper_path, e_paper_title)
 
     log.info("upload ZEIT e-paper to custom receiver")
-    custom_receiver.upload(e_paper_path)
+    custom_receiver.upload_epub(e_paper_path)
 
     webdriver.quit()
     log.info("done.")
